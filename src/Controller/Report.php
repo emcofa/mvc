@@ -13,7 +13,6 @@ class Report extends AbstractController
      */
     public function report(): Response
     {
-
         return $this->render('report.html.twig', [
             'index_url' => "/",
             'about_url' => "/about",

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,7 +13,6 @@ class About extends AbstractController
      */
     public function about(): Response
     {
-
         return $this->render('about.html.twig', [
             'index_url' => "~emfh21/dbwebb-kurser/mvc/me/report/public/",
             'about_url' => "~emfh21/dbwebb-kurser/mvc/me/report/public/about",
