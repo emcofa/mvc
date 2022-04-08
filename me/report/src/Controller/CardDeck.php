@@ -11,25 +11,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CardDeck extends AbstractController
 {
-    /**
-     * @Route("/card/deck", name="card-deck")
+
+        /**
+     * @Route("/card/deck", name="deck")
      */
-    public function cardDeck(): Response
+    public function deck(): Response
     {
         $card = new \App\Card\Deck();
         $data = [
             'title' => 'Spelkort (sorterade i färg och värde)',
             'card_deck' => $card->deck(),
-            'counter' => 0,
-            'index_url' => "/",
-            'about_url' => "/about",
-            'report_url' => "/report",
-            // 'die_as_string' => $die->getAsString(),
-            // 'link_to_roll' => $this->generateUrl('dice-graphic-roll', ['numRolls' => 5,]),
         ];
 
         return $this->render('card/deck.html.twig', $data);
     }
+
 
     /**
      * @Route("/card/deck/shuffle", name="card-deck-shuffle")
@@ -38,8 +34,8 @@ class CardDeck extends AbstractController
         SessionInterface $session
     ): Response {
         $card = $session->get("deck") ?? new \App\Card\Deck();
-        $cards = $card->deck();
         session_destroy();
+        $cards = $card->deck();
         $data = [
             'title' => 'Spelkort (osorterade)',
             'card_deck' => $card->shuffle($cards),
@@ -75,7 +71,7 @@ class CardDeck extends AbstractController
 
 
     /**
-     * @Route("/card/deck/draw/{number}", name="dice-graphic-rolls")
+     * @Route("/card/deck/draw/{number}", name="drawNumber")
      */
     public function drawNumber(
         int $number,
@@ -94,23 +90,5 @@ class CardDeck extends AbstractController
 
         return $this->render('card/draw-number.html.twig', $data);
     }
-
-    /**
-     * @Route("/card/deck/{players}/{cards}", name="game")
-     */
-    public function cardGame(
-        int $players,
-        int $cards
-    ): Response
-    {
-        $cardGame = new \App\Card\Players();
-
-        $data = [
-            'title' => 'Players',
-            'players' => $players,
-            'cards' => $cards,
-            'game' => $cardGame->draw(),
-        ];
-        return $this->render('card/game.html.twig', $data);
-    }
 }
+

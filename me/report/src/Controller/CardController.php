@@ -18,7 +18,9 @@ class CardController extends AbstractController
             'allCards' => "/card/deck",
             'shuffle' => "/card/deck/shuffle",
             'draw' => "/card/deck/draw",
-            'drawNumber' => "/card/deck/draw/2",
+            'drawNumber' => "/card/deck/draw",
+            'game' => "card/deck/deal/2/5",
+            'joker' => "/card/deck2",
             'allJson' => "/card/api/deck",
             'shuffleJson' => "/card/api/deck/shuffle",
         ]);
