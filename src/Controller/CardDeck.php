@@ -14,7 +14,8 @@ class CardDeck extends AbstractController
     /**
      * @Route("/card/deck", name="card-deck")
      */
-    public function cardDeck(): Response {
+    public function cardDeck(): Response
+    {
         $card = new \App\Card\Deck();
         $data = [
             'title' => 'Playing cards',
@@ -90,7 +91,7 @@ class CardDeck extends AbstractController
         $card = $session->get("deck") ?? new \App\Card\Deck();
 
         $data = [
-            'title' => 'You got this cards',
+            'title' => 'Resultat',
             'number' => $number,
             'card_deck' => $card->drawNumber($number),
             'count' => $card->getNumberCards(),
@@ -98,5 +99,24 @@ class CardDeck extends AbstractController
         $session->set("deck", $card);
 
         return $this->render('card/draw-number.html.twig', $data);
+    }
+
+    /**
+     * @Route("/card/deck/{players}/{cards}", name="game")
+     */
+    public function cardGame(
+        int $players,
+        int $cards
+    ): Response
+    {
+        $cardGame = new \App\Card\Players();
+
+        $data = [
+            'title' => 'Players',
+            'players' => $players,
+            'cards' => $cards,
+            'game' => $cardGame->draw(),
+        ];
+        return $this->render('card/game.html.twig', $data);
     }
 }

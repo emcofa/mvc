@@ -15,9 +15,12 @@ class CardController extends AbstractController
     public function card(): Response
     {
         return $this->render('card/card-landingpage.html.twig', [
-            'index_url' => "/",
-            'about_url' => "/about",
-            'report_url' => "/report",
+            'allCards' => "/card/deck",
+            'shuffle' => "/card/deck/shuffle",
+            'draw' => "/card/deck/draw",
+            'drawNumber' => "/card/deck/draw/2",
+            'allJson' => "/card/api/deck",
+            'shuffleJson' => "/card/api/deck/shuffle",
         ]);
     }
 }

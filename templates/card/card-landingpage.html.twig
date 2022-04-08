@@ -5,21 +5,33 @@
 <body>
     {% include 'nav.twig' %}
     <div class="container">
-        <h2>Kortspel</h2>
-        <ul>
-            {# <li>
-                <a href="{{ url(" index") }}">Index</a>,
-            </li>
-            <li>
-                <a href="{{ path(" about") }}">About</a>,
-            </li>
-            <li>
-                <a href="{{ path(" report") }}">Report</a>,
-            </li>
-            <li>
-                <a href="{{ path(" card") }}">Card</a>
-            </li>
-        </ul> #}
+        <div class="card-info-wrapper" </div>
+            <div class="column-links">
+                <img src="{{ asset("../img/cards/cards.png" ) }}" width="320" height="350" alt="cards">
+            </div>
+            <div class="column-links">
+                <h2>Kortspel</h2>
+                <ul class="ul-card">
+                    <li>
+                        <a href="{{ allCards }}">Visa hela kortleken</a>
+                    </li>
+                    <li>
+                        <a href="{{ shuffle }}">Blanda kortleken </a>
+                    </li>
+                    <li>
+                        <a href="{{ draw }}">Dra ett kort</a>
+                    </li>
+                    <li>
+                        <a href="{{ drawNumber }}">Dra flera kort (default 2 stycken)</a>
+                    </li>
+                </ul>
+                <h2>JSON</h2>
+                <ul class="ul-card">
+                    <li><a href="{{ allJson }}">Visa hela korleken</a></li>
+                    <li><a href="{{ shuffleJson }}">Blanda kortleken</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
 

@@ -9,7 +9,7 @@
     <div class="container">
         <h2>{{ title }}</h2>
 
-        <div class="deck">
+        <div class=".single-card">
             {% if count > 0 %}
             <div class="column">
                 {% for card in card_deck %} <img class="cards" src="{{ asset("../img/cards/" ~ card ~ ".svg" ) }}"
@@ -17,16 +17,17 @@
                 {% endfor %}
             </div>
             <div>
-                <p>Cards left: {{count}}</p>
+                <p>Kort kvar: {{count}}</p>
             </div>
             {% else %}
             <div>
-                <p>No cards left!</p>
+                <p>Inga kort kvar!</p>
             </div>
             {% endif %}
         </div>
+    </div>
 
-        {% include 'footer.twig' %}
+    {% include 'footer.twig' %}
 </body>
 
 {% endblock %}

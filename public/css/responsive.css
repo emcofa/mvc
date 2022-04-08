@@ -34,3 +34,9 @@
         grid-gap: 0px
     }
 }
+
+@media (max-width: 800px) {
+    .card-info-wrapper{
+      flex-direction: column;
+    }
+  }

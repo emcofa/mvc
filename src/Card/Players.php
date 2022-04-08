@@ -2,7 +2,7 @@
 
 namespace App\Card;
 
-class Deck
+class Players
 {
     // prints out a deck of cards
     public $numCards = 52;
@@ -30,6 +30,7 @@ class Deck
 
     public function shuffle(array $cards)
     {
+        print_r($this->allCards);
         $this->deleteCards = null;
         $total_cards = count($cards);
         $this->numCards = 52;
@@ -49,9 +50,6 @@ class Deck
 
     public function draw()
     {
-        if (count($this->allCards) == 0) {
-            return;
-        }
         shuffle($this->allCards);
         $cards = $this->allCards[0];
         array_shift($this->allCards);
@@ -77,6 +75,7 @@ class Deck
             $deleteCards[] = $cards;
             $x++;
         }
+        print_r($deleteCards);
         return $deleteCards;
     }
 

@@ -201,6 +201,7 @@ footer {
 }
 
 .container {
+    padding: 3em;
     max-width: 50%;
     text-align: center;
     margin: 0 auto;
