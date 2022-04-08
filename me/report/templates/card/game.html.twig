@@ -1,0 +1,22 @@
+{% include "base.html.twig" %}
+
+{# {% block title %}Dice{% endblock %} #}
+
+{% block content %}
+
+<body>
+    {% include 'nav.twig' %}
+    <div class="container">
+        <h2>{{ title }}</h2>
+
+        <div class="single-card">
+            <img class="cards" src="{{ asset("../img/cards/" ~ game ~ ".svg" ) }}" width="200" height="280"
+                alt="{{game}}">
+        </div>
+
+    </div>
+
+    {% include 'footer.twig' %}
+</body>
+
+{% endblock %}
